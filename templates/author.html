@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="book-detail-container"> <!-- Changed class name -->
+      <div class="book-detail-card"> <!-- Added specific class -->
+        <h3>{{ author['name'] }}</h3>
+        <img class="book-cover" src="{{ author['img'] }}" title="{{ author['name'] }}"/>
+      </div>
+      <aside class="book-detail-aside"> <!-- Added specific class -->
+        <p><strong>{{ author['name'] }}</strong><br>
+          was born in {{ author['birth_date'] }}
+            {% if author['date_of_death'] %}
+            and died in {{ author['date_of_death'] }}
+          {% endif %}
+        .</p>
+        <p>
+          {{ author['summary'] }}
+        </p>
+        <form action="/" method="get" style="display:inline;" class="delete-form">
+        <input type="hidden">
+        <input type="submit" value="Home" class="delete-button">
+        </form>
+      </aside>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="book-detail-container"> <!-- Changed class name -->
+      <div class="book-detail-card"> <!-- Added specific class -->
+        <h3>{{ book['title'] }}</h3>
+        <a href="/author/{{ book['author_id'] }}" class="author-name">{{ book['author'] }}</a>
+        <img class="book-cover" src="{{ book['thumbnail'] }}" title="{{ book['title'] }}"/>
+
+        <form action="/book/{{ book['id'] }}/delete" method="post" style="display:inline;" class="delete-form">
+        <input type="hidden" name="book_id" value="{{ book['id'] }}">
+        <input type="submit" value="Delete" class="delete-button">
+        </form>
+      </div>
+      <aside class="book-detail-aside"> <!-- Added specific class -->
+        <p>The book <strong>{{ book['title'] }}</strong><br>(isbn: {{ book['isbn'] }})<br>
+          was published in {{ book['year'] }} by {{ book['publisher'] }}</p>
+        <p>{{ book['description'] }}</p>
+        <form action="/" method="get" style="display:inline;" class="delete-form">
+        <input type="hidden">
+        <input type="submit" value="Home" class="delete-button">
+        </form>
+      </aside>
+    </div>
+  </body>
+</html>
