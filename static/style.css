@@ -145,7 +145,7 @@ p {
 }
 
 .delete-button {
-    background-color: red;
+    background-color: red !important;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -158,7 +158,15 @@ p {
 }
 
 .delete-button:hover {
-    background-color: darkred;
+    background-color: darkred !important;
+}
+
+.home-button {
+    background-color: #007bff !important;
+}
+
+.home-button:hover {
+    background-color: #0056b3 !important;
 }
 
 .delete-form {
@@ -182,7 +190,7 @@ p {
     z-index: 1000;
     display: block;
     opacity: 1;
-    animation: fade-in 0.5s ease-in-out forwards, fade-out 3s ease-in-out forwards 2.5s; /* Fade-in and fade-out */
+    animation: fade-in 0.5s ease-in-out forwards, fade-out 3s ease-in-out forwards 2.5s;
 }
 
 .action-buttons {
